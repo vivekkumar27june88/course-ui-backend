@@ -1,0 +1,19 @@
+{
+  "name": "course-ui-backend",
+  "version": "1.0.0",
+  "description": "UI Backend for Angular Course App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vivek Kumar <vivekkumar27june88@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "nodemon": "^1.19.4",
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.1",
+    "sqlite3": "^4.1.0",
+    "uuid": "^3.3.3"
+  }
+}
