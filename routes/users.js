@@ -1,8 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const rp = require('request-promise-native');
 const db = require('../models');
+const uuid = require('uuid');
 
-router.post('/register', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
+    const users = await db.User.findAll();
+    return res.status(200).json(users);
+});
+
+router.post('/', async (req, res, next) => {
     try {
         const userExist = await db.User.findAll({
             where: {
@@ -16,8 +23,8 @@ router.post('/register', async (req, res, next) => {
 
         const result = await db.User.create({
             id2: uuid.v4(),
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            firstName: req.body.first_name,
+            lastName: req.body.last_name,
             email: req.body.email,
             avatar: '',
             createdAt: new Date().toDateString(),
@@ -27,23 +34,6 @@ router.post('/register', async (req, res, next) => {
     } catch (createUserError) {
         console.error(createUserError);
         return res.status(500).json({ msg: 'internal server error' });
-    }
-});
-
-router.post('/login', async (req, res, next) => {
-    try {
-        const userExist = await db.User.findAll({
-            where: {
-                email: req.body.email,
-                
-            }
-        });
-
-        if (userExist && userExist.length > 0) {
-            return res.status(409).json({ msg: 'already exist' });
-        }
-    } catch(error) {
-
     }
 });
 

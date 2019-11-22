@@ -5,9 +5,11 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-// app.use('/api/auth', require('./routes/auth'));
+app.use('/api/auth', require('./routes/auth'));
 // app.use('/api/profile', require('./routes/profile'));
 app.use('/api/movies/', require('./routes/movies'));
+app.use('/api/users/', require('./routes/users'));
+app.use('*', (req, res) => res.status(404).json({ msg: 'not a valid resource' }));
 
 app.listen(3000, () => {
     const routes = [];
