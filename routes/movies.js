@@ -20,7 +20,8 @@ router.get('/trending', async (req, res, next) => {
 
         return res.status(200).json({
             data: rpRes,
-            imageBaseUrl: 'https://image.tmdb.org/t/p/w1280/'
+            imageBaseUrl: 'https://image.tmdb.org/t/p/w1280/',
+            iconBaseUrl: 'https://image.tmdb.org/t/p/w200'
         });
     } catch (err) {
         return res.status(400).json({});
@@ -46,7 +47,8 @@ router.get('/popular', async (req, res, next) => {
 
         return res.status(200).json({
             data: rpRes,
-            imageBaseUrl: 'https://image.tmdb.org/t/p/w1280/'
+            imageBaseUrl: 'https://image.tmdb.org/t/p/w1280/',
+            iconBaseUrl: 'https://image.tmdb.org/t/p/w200'
         });
     } catch (err) {
         return res.status(400).json({});
@@ -72,7 +74,8 @@ router.get('/:id', async (req, res, next) => {
 
         return res.status(200).json({
             data: rpRes,
-            imageBaseUrl: 'https://image.tmdb.org/t/p/w1280/'
+            imageBaseUrl: 'https://image.tmdb.org/t/p/w1280/',
+            iconBaseUrl: 'https://image.tmdb.org/t/p/w200'
         });
     } catch (err) {
         return res.status(400).json({});
